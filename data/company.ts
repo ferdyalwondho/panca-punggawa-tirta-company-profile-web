@@ -6,8 +6,8 @@ export const company = {
   established: 2022,
   address: 'Jl. Tanah Medeka No. 4A, RT 11 RW 04, Rambutan, Ciracas, Jakarta Timur',
   phone: '(021) 29843074',
-  mobile: '+62 821 6276 0450',
-  mobileLabel: 'Ferdy Alwondho — Chief Project Officer',
+  mobile: '+62 821 1220 2282',
+  mobileLabel: 'Reza Permana Putra — Chief Executive Officer',
   email: {
     general: 'info@pancapunggawatirta.co.id',
     project: 'project@pancapunggawatirta.co.id',
