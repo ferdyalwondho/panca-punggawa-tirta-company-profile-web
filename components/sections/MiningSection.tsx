@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { fadeUp, stagger } from '@/lib/animations'
 import { useRef } from 'react'
 import { SectionHeader } from '@/components/shared/SectionHeader'
 import { coachSpecData } from '@/data/projects'
@@ -100,7 +99,7 @@ export function MiningSection() {
             {Array.from({ length: 6 }).map((_, i) => (
               <div
                 key={i}
-                className="aspect-[4/3] rounded-2xl flex items-center justify-center border border-surface-line"
+                className="aspect-4/3 rounded-2xl flex items-center justify-center border border-surface-line"
                 style={{ background: `linear-gradient(135deg, ${ACCENT}12, ${ACCENT}04)` }}
               >
                 <div className="text-center">

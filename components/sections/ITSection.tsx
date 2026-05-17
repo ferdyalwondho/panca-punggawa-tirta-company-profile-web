@@ -115,7 +115,7 @@ export function ITSection() {
             {['Website Mockup', 'IoT Network', 'Dashboard', 'System Integration'].map((label, i) => (
               <div
                 key={i}
-                className="aspect-[4/3] rounded-2xl flex items-center justify-center border border-surface-line bg-white"
+                className="aspect-4/3 rounded-2xl flex items-center justify-center border border-surface-line bg-white"
                 style={{ background: `linear-gradient(135deg, ${ACCENT}10, ${ACCENT}03)` }}
               >
                 <div className="text-center px-3">

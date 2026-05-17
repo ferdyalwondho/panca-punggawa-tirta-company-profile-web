@@ -105,7 +105,7 @@ export function SolarSection() {
             {['Rooftop Industri', 'On-Grid Factory', 'PJU Tenaga Surya', 'Off-Grid + Battery'].map((label, i) => (
               <div
                 key={i}
-                className="aspect-[4/3] rounded-2xl flex items-center justify-center border border-surface-line"
+                className="aspect-4/3 rounded-2xl flex items-center justify-center border border-surface-line"
                 style={{ background: `linear-gradient(135deg, ${ACCENT}15, ${ACCENT}05)` }}
               >
                 <div className="text-center px-3">
