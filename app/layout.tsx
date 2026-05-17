@@ -34,7 +34,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}>
-      <body className="antialiased bg-surface text-ink">{children}</body>
+      <body className="antialiased bg-surface text-ink">
+        {/* Remove URL hash on homepage load before browser auto-scrolls */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          if (window.location.pathname === '/' && window.location.hash) {
+            history.replaceState(null, '', '/');
+          }
+        ` }} />
+        {children}
+      </body>
     </html>
   )
 }
