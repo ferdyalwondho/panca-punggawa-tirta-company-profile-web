@@ -27,6 +27,10 @@ export function Navbar() {
 
   useEffect(() => {
     if (pathname !== '/') return
+
+    // Reset activeSection on page load to avoid highlighting based on URL hash
+    setActiveSection('')
+
     const sectionIds = navLinks
       .filter((l) => !l.children)
       .map((l) => l.href.replace('#', ''))
