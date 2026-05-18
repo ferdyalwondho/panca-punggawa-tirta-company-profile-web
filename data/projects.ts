@@ -18,7 +18,7 @@ export const pipingProjects: Project[] = [
     location: 'Jambi, Sumatera',
     type: 'Pipeline installation',
     desc: 'Pengadaan dan instalasi jaringan pipa air bersih untuk program SPAM (Sistem Penyediaan Air Minum) Kota Jambi. Material: PVC SNI diameter 63–200mm.',
-    image: null,
+    image: '/images/piping/proj_pupr.jpg',
   },
   {
     badge: 'Aquaculture',
@@ -26,7 +26,7 @@ export const pipingProjects: Project[] = [
     location: 'Biak, Papua',
     type: 'Floating HDPE infrastructure',
     desc: 'Pasokan pipa HDPE untuk struktur keramba apung budidaya ikan tuna di perairan Biak. HDPE PN 12.5 diameter besar untuk struktur yang tahan terhadap kondisi laut.',
-    image: null,
+    image: '/images/piping/proj_biak.jpg',
   },
   {
     badge: 'Infrastructure • JICA Loan',
@@ -34,7 +34,7 @@ export const pipingProjects: Project[] = [
     location: 'Kroya – Kutoarjo (III)',
     type: 'JICA Loan No. IP-548',
     desc: 'Pasokan material pipa untuk pembangunan jalur ganda kereta api lintas selatan Jawa. Bagian dari proyek infrastruktur berbiaya pinjaman JICA senilai ratusan miliar rupiah.',
-    image: null,
+    image: '/images/piping/proj_railway.jpg',
   },
 ]
 
@@ -45,7 +45,7 @@ export const solarProjects: Project[] = [
     location: 'Jakarta Selatan',
     type: 'On-grid + battery backup',
     desc: 'Instalasi sistem solar hybrid untuk hunian pribadi. Panel surya rooftop terhubung jaringan PLN dengan battery backup — memastikan pasokan listrik tetap tersedia saat pemadaman sekaligus menekan tagihan listrik bulanan.',
-    image: null,
+    image: '/images/solar/solar_install_residential.jpg',
   },
 ]
 
@@ -56,7 +56,7 @@ export const itProjects: Project[] = [
     location: 'Jakarta',
     sector: 'Telekomunikasi',
     desc: 'Platform ERP terintegrasi mencakup Sales Pipeline, Project Management, e-Procurement, dan Asset Management (booking ruang meeting & kendaraan). Proven di lingkungan korporat — applicable untuk sektor konstruksi & infrastruktur.',
-    image: null,
+    image: '/images/it/it_app_alita.jpg',
     tags: ['Sales Pipeline', 'Project Management', 'e-Procurement', 'Asset Management'],
   },
   {

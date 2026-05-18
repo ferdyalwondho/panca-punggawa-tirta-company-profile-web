@@ -13,6 +13,27 @@ import { itProjects } from '@/data/projects'
 const ACCENT = '#7B61FF'
 const ACCENT_DARK = '#4F46E5'
 
+function GalleryPhoto({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="aspect-4/3 rounded-2xl overflow-hidden bg-white border border-surface-line relative group">
+      <img
+        src={src}
+        alt={alt}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        onError={(e) => {
+          const el = e.currentTarget
+          el.style.display = 'none'
+          const parent = el.parentElement
+          if (parent) {
+            parent.style.background = `linear-gradient(135deg, ${ACCENT}10, ${ACCENT}03)`
+            parent.innerHTML = `<div class="w-full h-full flex items-center justify-center"><span class="text-3xl font-black opacity-10" style="color:${ACCENT}">PPT</span></div>`
+          }
+        }}
+      />
+    </div>
+  )
+}
+
 const iconMap: Record<string, React.ElementType> = {
   monitor: Monitor,
   activity: Activity,
@@ -108,21 +129,17 @@ export function ITSection() {
           </div>
         </motion.div>
 
-        {/* Gallery placeholder */}
+        {/* Product Gallery */}
         <div className="mb-16">
-          <SectionHeader eyebrow="Gallery" heading="Ilustrasi Sistem Digital" />
+          <SectionHeader eyebrow="Gallery" heading="Screenshot Sistem Digital" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {['Website Mockup', 'IoT Network', 'Dashboard', 'System Integration'].map((label, i) => (
-              <div
-                key={i}
-                className="aspect-4/3 rounded-2xl flex items-center justify-center border border-surface-line bg-white"
-                style={{ background: `linear-gradient(135deg, ${ACCENT}10, ${ACCENT}03)` }}
-              >
-                <div className="text-center px-3">
-                  <Monitor className="w-8 h-8 mx-auto mb-2 opacity-20" style={{ color: ACCENT_DARK }} />
-                  <p className="text-xs text-ink-muted font-medium">{label}</p>
-                </div>
-              </div>
+            {[
+              { src: '/images/it/it_web_ppt.jpg',      alt: 'Website PT PPT' },
+              { src: '/images/it/it_app_alita.jpg',     alt: 'Alita Partner Onboarding Dashboard' },
+              { src: '/images/it/it_app_aviat1.jpg',    alt: 'Aviat Networks Project Dashboard' },
+              { src: '/images/it/it_app_aviat2.jpg',    alt: 'Aviat Networks Project Detail' },
+            ].map((photo) => (
+              <GalleryPhoto key={photo.src} src={photo.src} alt={photo.alt} />
             ))}
           </div>
         </div>

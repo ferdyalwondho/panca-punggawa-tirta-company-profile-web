@@ -12,6 +12,27 @@ import { pipingProjects } from '@/data/projects'
 
 const ACCENT = '#00B4D8'
 
+function GalleryPhoto({ src, alt, accent }: { src: string; alt: string; accent: string }) {
+  return (
+    <div className="aspect-4/3 rounded-2xl overflow-hidden bg-white border border-surface-line relative group">
+      <img
+        src={src}
+        alt={alt}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        onError={(e) => {
+          const el = e.currentTarget
+          el.style.display = 'none'
+          const parent = el.parentElement
+          if (parent) {
+            parent.style.background = `linear-gradient(135deg, ${accent}15, ${accent}05)`
+            parent.innerHTML = `<div class="w-full h-full flex items-center justify-center"><span class="text-3xl font-black opacity-10" style="color:${accent}">PPT</span></div>`
+          }
+        }}
+      />
+    </div>
+  )
+}
+
 export function PipingSection() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
@@ -94,17 +115,19 @@ export function PipingSection() {
           ))}
         </div>
 
-        {/* Gallery placeholder */}
+        {/* Product Gallery */}
         <div className="mb-16">
           <SectionHeader eyebrow="Product Gallery" heading="Foto Produk" />
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="aspect-4/3 rounded-2xl bg-white border border-surface-line flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-3xl font-black text-surface-line mb-1">PPT</div>
-                  <p className="text-xs text-ink-muted">Foto Produk {i + 1}</p>
-                </div>
-              </div>
+            {[
+              { src: '/images/piping/fittings_collection.jpg', alt: 'PVC Fittings Collection' },
+              { src: '/images/piping/truck_trailer_pipes.jpg', alt: 'Pipa di atas Truck Trailer' },
+              { src: '/images/piping/gate_valve_kitz.jpg',     alt: 'Gate Valve KITZ' },
+              { src: '/images/piping/meter_install.jpg',        alt: 'Water Meter Assembly' },
+              { src: '/images/piping/purple_pipes.jpg',         alt: 'PVC Purple & Grey Pipes' },
+              { src: '/images/piping/flange_stacks.jpg',        alt: 'Tumpukan Flange Galvanis' },
+            ].map((photo) => (
+              <GalleryPhoto key={photo.src} src={photo.src} alt={photo.alt} accent={ACCENT} />
             ))}
           </div>
         </div>

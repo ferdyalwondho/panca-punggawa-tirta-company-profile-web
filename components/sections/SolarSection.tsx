@@ -13,6 +13,27 @@ import { solarProjects } from '@/data/projects'
 const ACCENT = '#FFB627'
 const ACCENT_DARK = '#FF7A18'
 
+function GalleryPhoto({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="aspect-4/3 rounded-2xl overflow-hidden bg-white border border-surface-line relative group">
+      <img
+        src={src}
+        alt={alt}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        onError={(e) => {
+          const el = e.currentTarget
+          el.style.display = 'none'
+          const parent = el.parentElement
+          if (parent) {
+            parent.style.background = `linear-gradient(135deg, ${ACCENT}15, ${ACCENT}05)`
+            parent.innerHTML = `<div class="w-full h-full flex items-center justify-center"><span class="text-3xl font-black opacity-10" style="color:${ACCENT}">PPT</span></div>`
+          }
+        }}
+      />
+    </div>
+  )
+}
+
 const iconMap: Record<string, React.ElementType> = {
   zap: Zap,
   battery: Battery,
@@ -98,21 +119,17 @@ export function SolarSection() {
           </div>
         </motion.div>
 
-        {/* Gallery placeholder */}
+        {/* Product Gallery */}
         <div className="mb-16">
-          <SectionHeader eyebrow="Gallery" heading="Ilustrasi Instalasi Solar" />
+          <SectionHeader eyebrow="Gallery" heading="Foto Instalasi Solar" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {['Rooftop Industri', 'On-Grid Factory', 'PJU Tenaga Surya', 'Off-Grid + Battery'].map((label, i) => (
-              <div
-                key={i}
-                className="aspect-4/3 rounded-2xl flex items-center justify-center border border-surface-line"
-                style={{ background: `linear-gradient(135deg, ${ACCENT}15, ${ACCENT}05)` }}
-              >
-                <div className="text-center px-3">
-                  <Sun className="w-8 h-8 mx-auto mb-2 opacity-20" style={{ color: ACCENT_DARK }} />
-                  <p className="text-xs text-ink-muted font-medium">{label}</p>
-                </div>
-              </div>
+            {[
+              { src: '/images/solar/solar_install_residential.jpg', alt: '3 Teknisi Instalasi Atap Genteng' },
+              { src: '/images/solar/solar_install_rooftop.jpg',     alt: '2 Teknisi Atap Seng' },
+              { src: '/images/solar/solar_inverter_battery.jpg',    alt: 'SunSynk Inverter + Freedom Battery' },
+              { src: '/images/solar/solar_install_panel.jpg',       alt: '2 Teknisi Helm Kuning' },
+            ].map((photo) => (
+              <GalleryPhoto key={photo.src} src={photo.src} alt={photo.alt} />
             ))}
           </div>
         </div>
