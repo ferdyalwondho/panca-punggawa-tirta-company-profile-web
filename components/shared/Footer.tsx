@@ -11,13 +11,19 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <Image
-              src="/logo/ppt-logo.svg"
-              alt="PT Panca Punggawa Tirta"
-              width={160}
-              height={48}
-              className="h-10 w-auto brightness-0 invert mb-4"
-            />
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                src="/logo/ppt-logo.png"
+                alt="PT Panca Punggawa Tirta"
+                width={40}
+                height={40}
+                className="h-10 w-10 object-contain brightness-0 invert"
+              />
+              <div className="leading-tight">
+                <p className="text-[11px] font-extrabold tracking-widest uppercase text-white">Panca Punggawa</p>
+                <p className="text-[11px] font-extrabold tracking-widest uppercase text-brand-accent">Tirta</p>
+              </div>
+            </div>
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
               {company.footerTagline}
             </p>

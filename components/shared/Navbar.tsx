@@ -20,7 +20,10 @@ export function Navbar() {
 
   useEffect(() => {
     if (pathname !== '/') return
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20)
+      if (window.scrollY < 200) setActiveSection('')
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [pathname])
@@ -93,15 +96,23 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <button onClick={handleLogoClick} className="flex items-center shrink-0">
+        <button onClick={handleLogoClick} className="flex items-center gap-3 shrink-0 cursor-pointer group">
           <Image
-            src="/logo/ppt-logo.svg"
+            src="/logo/ppt-logo.png"
             alt="PT Panca Punggawa Tirta"
-            width={160}
-            height={48}
+            width={40}
+            height={40}
             priority
-            className={cn('h-10 w-auto transition-all duration-300', !isScrolled && 'brightness-0 invert')}
+            className={cn('h-10 w-10 object-contain transition-all duration-300 group-hover:scale-110', !isScrolled && 'brightness-0 invert')}
           />
+          <div className="leading-tight text-left transition-opacity duration-300 group-hover:opacity-70">
+            <p className={cn('text-[11px] font-extrabold tracking-widest uppercase transition-colors duration-300', isScrolled ? 'text-ink' : 'text-white')}>
+              Panca Punggawa
+            </p>
+            <p className={cn('text-[11px] font-extrabold tracking-widest uppercase transition-colors duration-300', isScrolled ? 'text-brand-primary' : 'text-white/80')}>
+              Tirta
+            </p>
+          </div>
         </button>
 
         {/* Desktop nav */}
