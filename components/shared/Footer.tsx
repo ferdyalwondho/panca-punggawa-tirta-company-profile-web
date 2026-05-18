@@ -88,7 +88,7 @@ export function Footer() {
           <p className="text-sm text-white/40">
             © {year} PT Panca Punggawa Tirta. All rights reserved.
           </p>
-          <p className="text-xs text-white/30">Piping · Solar · IT · Mining</p>
+          <p className="text-xs text-white/30">Piping · Solar · IT</p>
         </div>
       </div>
     </footer>

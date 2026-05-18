@@ -18,7 +18,15 @@ export const divisions: Division[] = [
     colorTo: 'to-brand-accent',
     accentColor: '#00B4D8',
     desc: 'PVC & HDPE pipe, fittings, dan aksesoris untuk jaringan air bersih, irigasi, dan infrastruktur industri.',
-    items: ['JIS AW, D, C', 'SNI S-16 s/d S-8', 'HDPE PN 12.5 & 16', 'Fittings TS & DV', 'Flange, socket, reducer'],
+    items: [
+      'PVC Pipe SNI Standard',
+      'PVC AW, D, C Standard',
+      'Sewerage Pipes',
+      'HDPE Pipes',
+      'Fiber Optics Pipes',
+      'Valve and Flange',
+      'Home Connection for Water Supply',
+    ],
   },
   {
     number: '02',
@@ -46,48 +54,19 @@ export const divisions: Division[] = [
       'Custom enterprise solutions',
     ],
   },
-  {
-    number: '04',
-    slug: 'mining',
-    title: 'Mining Supply',
-    colorFrom: 'from-yellow-600',
-    colorTo: 'to-amber-400',
-    accentColor: '#F59E0B',
-    desc: 'Supply batubara thermal dan material tambang untuk industri energi nasional — dari Palu, Sulawesi Tengah.',
-    items: [
-      'Thermal Coal GAR 4200–5800',
-      'Grade A, B, C, D',
-      'Partner: ADARO, BAYAN, BUKIT ASAM',
-      'KIDECO, BERAU COAL',
-      'Spot & kontrak jangka panjang',
-    ],
-  },
 ]
 
-export const pipingServices = [
-  {
-    title: 'PVC Pipes — JIS Standard',
-    desc: 'Pipa PVC standar JIS AW, D, dan C untuk berbagai kebutuhan distribusi air dan konstruksi.',
-    specs: ['JIS AW (tekanan tinggi)', 'JIS D (standar)', 'JIS C (ringan)'],
-  },
-  {
-    title: 'PVC Pipes — SNI Standard',
-    desc: 'Pipa PVC berstandar SNI untuk proyek pemerintah dan infrastruktur publik nasional.',
-    specs: ['SNI S-16', 'SNI S-12.5', 'SNI S-10', 'SNI S-8'],
-  },
-  {
-    title: 'HDPE Pipes',
-    desc: 'Pipa HDPE tekanan tinggi untuk instalasi yang membutuhkan fleksibilitas dan ketahanan kimia.',
-    specs: ['PN 12.5', 'PN 16', 'Diameter 20mm – 630mm'],
-  },
-  {
-    title: 'Fittings & Accessories',
-    desc: 'Kelengkapan sistem perpipaan untuk koneksi yang andal dan bebas bocor.',
-    specs: ['Fittings TS & DV', 'Flange & socket', 'Reducer & elbow', 'Valve & clamp'],
-  },
-]
+export const pipingSpecLeft = {
+  title: 'PVC Pipes — Standards',
+  items: ['JIS: AW, D, C', 'SNI S-16 s/d S-8', 'Klas A, B'],
+}
 
-export const pipingBrands = ['SUPRALON', 'PROVILON', 'SKYLON', 'EXCELLON']
+export const pipingSpecRight = {
+  title: 'FITTINGS & HDPE',
+  items: ['HDPE Pipes PE-100 & PE-80', 'Water Supply', 'Gas Pipes', 'Fiber Optics'],
+}
+
+export const pipingBrands = ['SUPRALON', 'EXCELLON']
 
 export const solarServices = [
   {

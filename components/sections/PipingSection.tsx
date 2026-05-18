@@ -7,7 +7,7 @@ import { useRef } from 'react'
 import { Check, Package, Clock } from 'lucide-react'
 import { SectionHeader } from '@/components/shared/SectionHeader'
 import { ProjectCard } from '@/components/shared/ProjectCard'
-import { pipingServices, pipingBrands } from '@/data/divisions'
+import { pipingSpecLeft, pipingSpecRight, pipingBrands } from '@/data/divisions'
 import { pipingProjects } from '@/data/projects'
 
 const ACCENT = '#00B4D8'
@@ -42,16 +42,16 @@ export function PipingSection() {
           </div>
         </motion.div>
 
+        {/* Spec table — 2 columns */}
         <motion.div variants={stagger} initial="hidden" animate={inView ? 'show' : 'hidden'} className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {pipingServices.map((svc) => (
-            <motion.div key={svc.title} variants={fadeUp} className="bg-white rounded-2xl p-6 border border-surface-line">
-              <h4 className="font-bold text-ink mb-2">{svc.title}</h4>
-              <p className="text-ink-muted text-sm leading-relaxed mb-4">{svc.desc}</p>
-              <ul className="space-y-1">
-                {svc.specs.map((s) => (
-                  <li key={s} className="flex items-center gap-2 text-xs text-ink-soft">
-                    <Check className="w-3 h-3 shrink-0" style={{ color: ACCENT }} />
-                    {s}
+          {[pipingSpecLeft, pipingSpecRight].map((spec) => (
+            <motion.div key={spec.title} variants={fadeUp} className="bg-white rounded-2xl p-6 border border-surface-line">
+              <h4 className="font-bold text-ink mb-4">{spec.title}</h4>
+              <ul className="space-y-2">
+                {spec.items.map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-ink-soft">
+                    <Check className="w-3.5 h-3.5 shrink-0" style={{ color: ACCENT }} />
+                    {item}
                   </li>
                 ))}
               </ul>
@@ -99,7 +99,7 @@ export function PipingSection() {
           <SectionHeader eyebrow="Product Gallery" heading="Foto Produk" />
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="aspect-[4/3] rounded-2xl bg-white border border-surface-line flex items-center justify-center">
+              <div key={i} className="aspect-4/3 rounded-2xl bg-white border border-surface-line flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-3xl font-black text-surface-line mb-1">PPT</div>
                   <p className="text-xs text-ink-muted">Foto Produk {i + 1}</p>

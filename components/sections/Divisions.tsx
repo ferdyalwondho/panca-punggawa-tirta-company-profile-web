@@ -19,8 +19,8 @@ export function Divisions() {
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           eyebrow="Our Products"
-          heading="Empat Pilar Infrastruktur Terintegrasi"
-          subheading="Satu mitra untuk kebutuhan piping, energi, digital, dan material tambang Anda."
+          heading="Tiga Pilar Infrastruktur Terintegrasi"
+          subheading="Satu mitra untuk kebutuhan piping, energi, dan digital Anda."
           centered
         />
 

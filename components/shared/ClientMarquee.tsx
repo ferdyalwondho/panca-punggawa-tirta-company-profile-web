@@ -17,7 +17,7 @@ export function ClientMarquee() {
           <div key={i} className="flex items-center gap-3 shrink-0">
             <div className="w-2 h-2 rounded-full bg-brand-accent opacity-60" />
             <span className="text-sm font-semibold text-ink-soft whitespace-nowrap tracking-wide">
-              {client}
+              {client.name}
             </span>
           </div>
         ))}

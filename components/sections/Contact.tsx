@@ -16,7 +16,7 @@ const contactSchema = z.object({
   company: z.string().optional(),
   email: z.string().email('Email tidak valid'),
   phone: z.string().optional(),
-  interest: z.enum(['piping', 'solar', 'it', 'mining', 'general']),
+  interest: z.enum(['piping', 'solar', 'it', 'general']),
   message: z.string().min(10, 'Pesan minimal 10 karakter'),
 })
 
@@ -26,7 +26,6 @@ const interestOptions = [
   { value: 'piping', label: 'Piping Solutions' },
   { value: 'solar', label: 'Solar Energy' },
   { value: 'it', label: 'IT Solutions' },
-  { value: 'mining', label: 'Mining' },
   { value: 'general', label: 'Umum / Lainnya' },
 ]
 

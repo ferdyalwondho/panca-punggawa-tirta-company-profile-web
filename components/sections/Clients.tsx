@@ -3,12 +3,50 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Image from 'next/image'
 import { SectionHeader } from '@/components/shared/SectionHeader'
-import { ClientMarquee } from '@/components/shared/ClientMarquee'
+import { clients } from '@/data/clients'
+import { fadeUp, stagger } from '@/lib/animations'
+
+function ClientCard({ client, className = '' }: { client: (typeof clients)[number]; className?: string }) {
+  const logoClass =
+    'logoSize' in client
+      ? client.logoSize === 'xl'
+        ? 'max-w-52 max-h-16'
+        : client.logoSize === 'tall'
+          ? 'max-w-28 max-h-24'
+          : 'max-w-44 max-h-16'
+      : 'max-w-32 max-h-12'
+
+  return (
+    <div className={`bg-white rounded-2xl border border-surface-line p-6 flex flex-col items-center justify-center gap-3 hover:shadow-md transition-shadow duration-200 min-h-36 ${className}`}>
+      <div className="flex items-center justify-center">
+        <Image
+          src={client.logo}
+          alt={client.name}
+          width={300}
+          height={200}
+          style={{ width: 'auto', height: 'auto' }}
+          className={logoClass}
+        />
+      </div>
+      <div className="text-center">
+        <p className="text-xs font-semibold text-ink leading-snug">{client.name}</p>
+        {'subtitle' in client && client.subtitle && (
+          <p className="text-xs text-ink-muted">{client.subtitle}</p>
+        )}
+        <p className="text-[10px] text-ink-muted mt-0.5">{client.sector}</p>
+      </div>
+    </div>
+  )
+}
 
 export function Clients() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
+
+  const row1 = clients.slice(0, 4)
+  const row2 = clients.slice(4, 7)
 
   return (
     <section id="clients" className="py-24 bg-surface-soft">
@@ -28,30 +66,26 @@ export function Clients() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-white rounded-3xl border border-surface-line py-10 overflow-hidden"
+          variants={stagger}
+          initial="hidden"
+          animate={inView ? 'show' : 'hidden'}
+          className="space-y-5"
         >
-          <ClientMarquee />
-        </motion.div>
+          {/* Row 1 — 4 clients */}
+          <motion.div variants={fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-5">
+            {row1.map((client) => (
+              <ClientCard key={client.name} client={client} />
+            ))}
+          </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5"
-        >
-          {[
-            { label: 'BUMN', desc: 'Pertamina, PLN, PGN, PUPR, WIKA, Waskita, Adhi, dan lebih banyak lagi.' },
-            { label: 'Kontraktor Besar', desc: 'HK Infrastruktur, Hutama Karya, Nindya Karya, Abipraya, Rekind.' },
-            { label: 'Industri & Perbankan', desc: 'Krakatau Steel, Indonesia Power, PAL Indonesia, Bank BRI & BNI.' },
-          ].map((cat) => (
-            <div key={cat.label} className="bg-white rounded-2xl p-6 border border-surface-line">
-              <p className="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-2">{cat.label}</p>
-              <p className="text-sm text-ink-muted leading-relaxed">{cat.desc}</p>
-            </div>
-          ))}
+          {/* Row 2 — 3 clients, centered */}
+          <motion.div variants={fadeUp} className="flex justify-center items-stretch gap-5 flex-wrap">
+            {row2.map((client) => (
+              <div key={client.name} className="w-full sm:w-[calc(33.333%-14px)] max-w-65 flex">
+                <ClientCard client={client} className="flex-1" />
+              </div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>
