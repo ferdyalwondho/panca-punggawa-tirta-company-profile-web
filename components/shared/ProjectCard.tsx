@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils'
 import { MapPin, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Project } from '@/data/projects'
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 export function ProjectCard({ project, accentColor = '#00B4D8' }: Props) {
   if (project.cta && project.ctaHref) {
     return (
-      <div className="rounded-2xl border border-surface-line bg-surface-soft p-8 flex flex-col justify-between min-h-[240px]">
+      <div className="rounded-2xl border border-surface-line bg-surface-soft p-8 flex flex-col justify-between min-h-60">
         <div>
           <span
             className="inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4"
@@ -37,8 +37,8 @@ export function ProjectCard({ project, accentColor = '#00B4D8' }: Props) {
   return (
     <div className="rounded-2xl border border-surface-line bg-white overflow-hidden group hover:shadow-lg transition-shadow duration-300">
       {project.image ? (
-        <div className="h-48 bg-surface-soft overflow-hidden">
-          <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div className="h-48 bg-surface-soft overflow-hidden relative">
+          <Image src={project.image} alt={project.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
         </div>
       ) : (
         <div
