@@ -77,10 +77,12 @@ export function Clients() {
             ))}
           </motion.div>
 
-          {/* Row 2 — 3 clients, 2-col on mobile / 3-col on desktop */}
-          <motion.div variants={fadeUp} className="grid grid-cols-2 md:grid-cols-3 gap-5">
+          {/* Row 2 — 2-col on mobile, centered with max-width on desktop */}
+          <motion.div variants={fadeUp} className="grid grid-cols-2 md:flex md:justify-center md:items-stretch gap-5">
             {row2.map((client) => (
-              <ClientCard key={client.name} client={client} />
+              <div key={client.name} className="md:w-[calc(33.333%-14px)] md:max-w-65 md:flex">
+                <ClientCard client={client} className="flex-1" />
+              </div>
             ))}
           </motion.div>
         </motion.div>
