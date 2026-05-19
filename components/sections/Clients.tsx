@@ -12,22 +12,21 @@ function ClientCard({ client, className = '' }: { client: (typeof clients)[numbe
   const logoClass =
     'logoSize' in client
       ? client.logoSize === 'xl'
-        ? 'max-w-full sm:max-w-52 max-h-12 sm:max-h-16'
+        ? 'max-h-12 sm:max-h-16'
         : client.logoSize === 'tall'
-          ? 'max-w-full sm:max-w-28 max-h-20 sm:max-h-24'
-          : 'max-w-full sm:max-w-44 max-h-12 sm:max-h-16'
-      : 'max-w-full sm:max-w-32 max-h-10 sm:max-h-12'
+          ? 'max-h-16 sm:max-h-20'
+          : 'max-h-10 sm:max-h-14'
+      : 'max-h-8 sm:max-h-12'
 
   return (
-    <div className={`bg-white rounded-2xl border border-surface-line p-4 md:p-6 flex flex-col items-center justify-center gap-3 hover:shadow-md transition-shadow duration-200 min-h-36 ${className}`}>
+    <div className={`bg-white rounded-2xl border border-surface-line p-4 md:p-6 flex flex-col items-center justify-center gap-3 hover:shadow-md transition-shadow duration-200 min-h-36 overflow-hidden ${className}`}>
       <div className="flex items-center justify-center w-full">
         <Image
           src={client.logo}
           alt={client.name}
           width={300}
           height={200}
-          style={{ width: 'auto', height: 'auto' }}
-          className={`${logoClass} object-contain`}
+          className={`w-full h-auto object-contain ${logoClass}`}
         />
       </div>
       <div className="text-center">
