@@ -12,22 +12,22 @@ function ClientCard({ client, className = '' }: { client: (typeof clients)[numbe
   const logoClass =
     'logoSize' in client
       ? client.logoSize === 'xl'
-        ? 'max-w-52 max-h-16'
+        ? 'max-w-full sm:max-w-52 max-h-12 sm:max-h-16'
         : client.logoSize === 'tall'
-          ? 'max-w-28 max-h-24'
-          : 'max-w-44 max-h-16'
-      : 'max-w-32 max-h-12'
+          ? 'max-w-full sm:max-w-28 max-h-20 sm:max-h-24'
+          : 'max-w-full sm:max-w-44 max-h-12 sm:max-h-16'
+      : 'max-w-full sm:max-w-32 max-h-10 sm:max-h-12'
 
   return (
-    <div className={`bg-white rounded-2xl border border-surface-line p-6 flex flex-col items-center justify-center gap-3 hover:shadow-md transition-shadow duration-200 min-h-36 ${className}`}>
-      <div className="flex items-center justify-center">
+    <div className={`bg-white rounded-2xl border border-surface-line p-4 md:p-6 flex flex-col items-center justify-center gap-3 hover:shadow-md transition-shadow duration-200 min-h-36 ${className}`}>
+      <div className="flex items-center justify-center w-full">
         <Image
           src={client.logo}
           alt={client.name}
           width={300}
           height={200}
           style={{ width: 'auto', height: 'auto' }}
-          className={logoClass}
+          className={`${logoClass} object-contain`}
         />
       </div>
       <div className="text-center">
@@ -78,12 +78,10 @@ export function Clients() {
             ))}
           </motion.div>
 
-          {/* Row 2 — 3 clients, centered */}
-          <motion.div variants={fadeUp} className="flex justify-center items-stretch gap-5 flex-wrap">
+          {/* Row 2 — 3 clients, 2-col on mobile / 3-col on desktop */}
+          <motion.div variants={fadeUp} className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {row2.map((client) => (
-              <div key={client.name} className="w-full sm:w-[calc(33.333%-14px)] max-w-65 flex">
-                <ClientCard client={client} className="flex-1" />
-              </div>
+              <ClientCard key={client.name} client={client} />
             ))}
           </motion.div>
         </motion.div>

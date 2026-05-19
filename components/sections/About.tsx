@@ -43,9 +43,9 @@ export function About() {
             {/* Stat grid */}
             <motion.div variants={stagger} className="grid grid-cols-3 gap-4">
               {stats.map((s) => (
-                <motion.div key={s.label} variants={fadeUp} className="bg-white rounded-2xl p-5 border border-surface-line">
-                  <p className="text-2xl md:text-3xl font-extrabold text-brand-primary mb-1">{s.value}</p>
-                  <p className="text-xs text-ink-muted font-medium">{s.label}</p>
+                <motion.div key={s.label} variants={fadeUp} className="bg-white rounded-2xl p-3 sm:p-5 border border-surface-line">
+                  <p className="text-base sm:text-2xl md:text-3xl font-extrabold text-brand-primary mb-1 leading-tight wrap-break-word">{s.value}</p>
+                  <p className="text-[10px] sm:text-xs text-ink-muted font-medium">{s.label}</p>
                 </motion.div>
               ))}
             </motion.div>
