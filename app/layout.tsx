@@ -14,10 +14,6 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'PT Panca Punggawa Tirta — Piping, Solar & IT Solutions',
-  icons: {
-    icon: '/logo/ppt-logo.svg',
-    shortcut: '/logo/ppt-logo.png',
-  },
   description:
     'Solusi infrastruktur terintegrasi: pipa PVC/HDPE, solar energy, dan IT solutions untuk BUMN dan proyek konstruksi nasional.',
   keywords: ['pipa PVC', 'HDPE', 'solar panel', 'IoT monitoring', 'infrastruktur', 'BUMN', 'kontraktor'],
