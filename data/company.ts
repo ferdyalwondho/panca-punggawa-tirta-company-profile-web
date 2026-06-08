@@ -7,7 +7,7 @@ export const company = {
   address: 'Jl. Tanah Medeka No. 4A, RT 11 RW 04, Rambutan, Ciracas, Jakarta Timur',
   phone: '(021) 29843074',
   mobile: '+62 821 1220 2282',
-  mobileLabel: 'Reza Permana Putra — CEO & Chief Commercial Officer',
+  mobileLabel: 'Reza Permana Putra',
   email: {
     general: 'info@ppt.co.id',
     project: 'project@ppt.co.id',
