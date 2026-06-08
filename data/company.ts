@@ -52,7 +52,7 @@ export const navLinks: NavLink[] = [
     href: '/#about',
     children: [
       { label: 'Company Profile', desc: 'Visi, misi & profil perusahaan', href: '/about', color: '#00B4D8' },
-      { label: 'Our Leadership', desc: 'Tim di balik PT PPT', href: '/about/leadership', color: '#7B61FF' },
+      // { label: 'Our Leadership', desc: 'Tim di balik PT PPT', href: '/about/leadership', color: '#7B61FF' },
     ],
   },
   {
