@@ -52,7 +52,7 @@ export const solarProjects: Project[] = [
 export const itProjects: Project[] = [
   {
     badge: 'Enterprise Web App',
-    title: 'ERP Platform — PT Alita Praya Mitra',
+    title: 'ERP Platform',
     location: 'Jakarta',
     sector: 'Telekomunikasi',
     desc: 'Platform ERP terintegrasi mencakup Sales Pipeline, Project Management, e-Procurement, dan Asset Management (booking ruang meeting & kendaraan). Proven di lingkungan korporat — applicable untuk sektor konstruksi & infrastruktur.',

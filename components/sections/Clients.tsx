@@ -44,8 +44,8 @@ export function Clients() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
-  const row1 = clients.slice(0, 4)
-  const row2 = clients.slice(4, 7)
+  const row1 = clients.slice(0, 3)
+  const row2 = clients.slice(3)
 
   return (
     <section id="clients" className="py-24 bg-surface-soft">
@@ -70,8 +70,8 @@ export function Clients() {
           animate={inView ? 'show' : 'hidden'}
           className="space-y-5"
         >
-          {/* Row 1 — 4 clients */}
-          <motion.div variants={fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-5">
+          {/* Row 1 — 3 clients */}
+          <motion.div variants={fadeUp} className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {row1.map((client) => (
               <ClientCard key={client.name} client={client} />
             ))}
@@ -80,7 +80,7 @@ export function Clients() {
           {/* Row 2 — 2-col on mobile, centered with max-width on desktop */}
           <motion.div variants={fadeUp} className="grid grid-cols-2 md:flex md:justify-center md:items-stretch gap-5">
             {row2.map((client) => (
-              <div key={client.name} className="md:w-[calc(33.333%-14px)] md:max-w-65 md:flex">
+              <div key={client.name} className="md:w-[calc(40%-10px)] md:max-w-72 md:flex">
                 <ClientCard client={client} className="flex-1" />
               </div>
             ))}

@@ -30,17 +30,17 @@ export const clients = [
     sector: 'Construction',
     logoSize: 'tall',
   },
-  {
-    name: 'PT Alita Praya Mitra',
-    logo: '/images/clients/logo_alita.png',
-    sector: 'Telecommunications',
-  },
-  {
-    name: 'PT Anugerah Mahameru Nusantara',
-    logo: '/images/clients/logo_mahameru.png',
-    sector: 'Infrastructure',
-    logoSize: 'lg',
-  },
+  // {
+  //   name: 'PT Alita Praya Mitra',
+  //   logo: '/images/clients/logo_alita.png',
+  //   sector: 'Telecommunications',
+  // },
+  // {
+  //   name: 'PT Anugerah Mahameru Nusantara',
+  //   logo: '/images/clients/logo_mahameru.png',
+  //   sector: 'Infrastructure',
+  //   logoSize: 'lg',
+  // },
 ]
 
 export type Client = (typeof clients)[number]
